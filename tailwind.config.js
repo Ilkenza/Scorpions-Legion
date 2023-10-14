@@ -33,12 +33,12 @@ export default {
       disc: "inset 0 -3.25em 0 0 #499BF8"
     },
     backgroundImage:{
-        'mb-pocetna': "url('./src/assets/mobile/mbpocetna.png')",
-        'mb-onama': "url('./src/assets/mobile/mbonama.png')",
+        'mb-pocetna': "url('/src/assets/mobile/mbpocetna.png')",
+        'mb-onama': "url('/src/assets/mobile/mbonama.png')",
         'desk-pocetna': "url('/src/assets/desktop/deskpocetna.png')",
-        'desk-onama': "url('./src/assets/desktop/deskonama.png')",
-        'ilkenza-logo': "url('./src/assets/ilkenza-logo.png')",
-        'nesko-logo': "url('./src/assets/nesko-logo.png')"
+        'desk-onama': "url('/src/assets/desktop/deskonama.png')",
+        'ilkenza-logo': "url('/src/assets/ilkenza-logo.png')",
+        'nesko-logo': "url('/src/assets/nesko-logo.png')"
     }
   },
   plugins: [],
