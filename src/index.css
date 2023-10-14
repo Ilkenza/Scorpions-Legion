@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ReactCollapse--collapse {
+    transition: height 500ms;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color:#FF3131;
+    border: 1px solid#141414;
+    border-radius:0.625rem;
+}
+::-webkit-scrollbar{width:0.625rem;}
+
+::-webkit-scrollbar-track{background:#141414;}
