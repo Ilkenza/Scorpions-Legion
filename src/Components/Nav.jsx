@@ -49,7 +49,7 @@ function Nav() {
 
   return (
     <header className={`fixed top-0 w-full z-10`}>
-      <nav className={`flex items-center justify-evenly w-full font-bold text-xl ${navbar ? "bg-[#171717b3] border-b-[0.01rem] border-glcrvena backdrop-blur z-10 duration-100" : "duration-100"} ${click ? "bg-[#171717]": "bg-transparent"}`}>
+      <nav className={`flex items-center justify-evenly w-full font-bold text-xl ${navbar ? "bg-[#171717] border-b-[0.01rem] border-glcrvena backdrop-blur z-10 duration-100" : "duration-100"} ${click ? "bg-[#171717] border-b-[0.01rem] border-glcrvena backdrop-blur z-10": "bg-transparent"}`}>
         <Links linkov="pocetna" stil={cn} />
         <Links linkov="onama" stil={cn} />
         <Links linkov="logo" stil="w-[6rem]" />
