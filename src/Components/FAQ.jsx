@@ -38,7 +38,7 @@ function Faq () {
     }
   ]
   return (
-    <div id="FAQ" className="bg-cover bg-no-repeat bg-center w-full h-[100vh] flex justify-center items-center flex-col text-glcrvena">
+    <div id="FAQ" className="bg-cover bg-no-repeat bg-center w-full h-[110vh] flex justify-center items-center flex-col text-glcrvena">
       <h3 className="text-[4rem] sm:text-[5rem] md:text-[6rem] font-bold" data-aos="fade-up">FAQ</h3>
       <div className="h-[0.5rem] w-[9rem] sm:w-[12rem] md:w-[15rem] bg-glcrvena mb-14" data-aos="fade-up"></div>
       <div className="w-[90%] sm:w-[35rem] md:w-[42.5rem]">
@@ -51,13 +51,3 @@ function Faq () {
 }
 
 export default Faq
-
-/*<div key={i} className="bg-[#1E1E1E] mb-5 p-0 rounded-lg" data-aos="fade-up"
-data-aos-delay="30">
-<div className="flex items-center justify-between cursor-pointer p-5" onClick={() => toggle(i)}>
-  <h2 className="text-4xl font-bold">{item.question}</h2>
-  <span className={ico}>{selected === i ? <Icons ikonice="downangle" stilovi={tra}/> : <Icons ikonice="upangle" stilovi={tra}/> }</span>
-  </div>
-  <div className={selected === i ? show : cont } ><p className={bo} >{item.answer}</p></div>
-</div>
-*/
