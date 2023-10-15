@@ -22,6 +22,7 @@ function Nav() {
       setNavbar(true);
       setClick(false);
       document.body.style.overflow = "visible";
+
     } else {
       setNavbar(false);
     }
@@ -42,14 +43,27 @@ function Nav() {
   const mstilovi = "text-bela hover:text-glcrvena transition-all ease-linear duration-100";
 
   const contentClasses = `md:hidden items-center flex flex-col h-screen justify-evenly transform ${
-    click ? "animate__animated animate__slideInRight bg-[#171717]" : "animate__animated animate__slideOuRight"
+    click ? "animate__animated animate__slideInRight bg-[#171717] opacity-100" : "animate__animated animate__slideOutRight opacity-0 transition-opacity duration-1000 ease-in-out bg-[#171717]"
   } transition-transform duration-300 ease-in-out`;
-  const contentStyle = {
-    opacity: click ? 1 : 0, 
-    visibility: click ? 'visible' : 'hidden', 
-  };
-  const content = (
-    <div className={`animate-content-show ${contentClasses}`} style={contentStyle}>
+  
+
+  return (
+    <header className={`fixed top-0 w-full z-10`}>
+      <nav className={`flex items-center justify-evenly w-full font-bold text-xl ${navbar ? "bg-[#171717b3] border-b-[0.01rem] border-glcrvena backdrop-blur z-10 duration-100" : "duration-100"} ${click ? "bg-[#171717]": "bg-transparent"}`}>
+        <Links linkov="pocetna" stil={cn} />
+        <Links linkov="onama" stil={cn} />
+        <Links linkov="logo" stil="w-[6rem]" />
+        <Links linkov="vlasnici" stil={cn} />
+        <Links linkov="faq" stil={cn} />
+        <button className="block md:hidden transition" onClick={handleClick}>
+          {click ? (
+            <Icons ikonice="close" stilovi="text-4xl text-glcrvena" />
+          ) : (
+            <Icons ikonice="menu" stilovi="text-4xl text-glcrvena" />
+          )}
+        </button>
+      </nav>
+      <div className={`animate-content-show ${contentClasses}`}>
       <div className="text-3xl items-center inline-flex w-full flex-col">
         <Links linkov="pocetna" stil={nb} />
         <Links linkov="onama" stil={nb} />
@@ -71,29 +85,6 @@ function Nav() {
         </a>
       </div>
     </div>
-  );
-
-  const headerStyle = {
-    background: click ? "#171717" : "",
-  };
-
-  return (
-    <header className={`fixed top-0 w-full z-10 ${navbar ? "bg-[#171717b3] border-b-[0.01rem] border-glcrvena backdrop-blur z-10" : ""}`}>
-      <nav className="flex items-center justify-evenly w-full font-bold text-xl" style={headerStyle}>
-        <Links linkov="pocetna" stil={cn} />
-        <Links linkov="onama" stil={cn} />
-        <Links linkov="logo" stil="w-[6rem]" />
-        <Links linkov="vlasnici" stil={cn} />
-        <Links linkov="faq" stil={cn} />
-        <button className="block md:hidden transition" onClick={handleClick}>
-          {click ? (
-            <Icons ikonice="close" stilovi="text-4xl text-glcrvena" />
-          ) : (
-            <Icons ikonice="menu" stilovi="text-4xl text-glcrvena" />
-          )}
-        </button>
-      </nav>
-      {click && content}
     </header>
   );
 }
