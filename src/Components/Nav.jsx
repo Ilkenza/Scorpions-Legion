@@ -39,7 +39,7 @@ function Nav() {
   const nb =
     "cursor-pointer font-bold hover:text-glcrvena my-5 transition-all ease-linear duration-100 text-bela";
   const micons = "m-4 text-3xl";
-  const mstilovi = "hover:text-hcrvena transition-all ease-linear duration-100";
+  const mstilovi = "text-bela hover:text-glcrvena transition-all ease-linear duration-100";
 
   const contentClasses = `md:hidden items-center flex flex-col h-screen justify-evenly transform ${
     click ? "animate__animated animate__slideInRight bg-[#171717]" : "animate__animated animate__slideOuRight"
@@ -56,7 +56,7 @@ function Nav() {
         <Links linkov="vlasnici" stil={nb} />
         <Links linkov="faq" stil={nb} />
       </div>
-      <div className="text-glcrvena md:hidden flex my-5">
+      <div className="md:hidden flex my-5">
         <a href="https://discord.gg/hcbMShPYJ8" target="blank" className={mstilovi}>
           <Icons ikonice="discord" stilovi={micons} />
         </a>
