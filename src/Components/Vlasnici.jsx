@@ -17,7 +17,7 @@ function Vlasnici() {
   return (
     <div
       id="Vlasnici"
-      className="h-[170vh] md:h-[100vh] flex justify-center items-center flex-col font-bold mt-10 sm:mt-4 m-4">
+      className="h-[150vh] md:h-[100vh] flex justify-center items-center flex-col font-bold mt-10 sm:mt-4 m-4">
       <h3
         className="text-[4rem] text-glcrvena sm:text-[5rem] md:text-[6rem]"
         data-aos="fade-up"
