@@ -59,7 +59,7 @@ function Footer() {
             Copyright &copy; 2023 Scorpions Legion All Rights Reserved. Made by{" "}
             <a
               href="https://linktr.ee/ilkenza"
-              className="text-glcrvena underline hover:text-hcrvena"
+              className="text-bela underline hover:text-glcrvena"
             >
               korodicilija
             </a>
