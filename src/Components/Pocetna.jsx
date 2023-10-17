@@ -23,6 +23,8 @@ function Pocetna () {
       <div className="flex items-center justify-center" data-aos="fade-down">
         <Link spy={true} smooth={true} to="Onama" className="cursor-pointer"><Icons ikonice="downangle" stilovi="text-glcrvena text-6xl cursor-pointer animate-bounce2"/></Link></div>
     </div>
+    <div className="inline-flex items-center right-10 sm:right-20 bottom-0 fixed rounded-t-lg bg-[#499bf8cc] p-1" data-aos="fade-up">
+        <Link spy={true} smooth={true} to="Pocetna" className="cursor-pointer"><Icons ikonice="upangle" stilovi="text-bela hover:text-glcrvena duration-300 ease-linear hover:ease-linear hover:duration-300 text-5xl sm:text-6xl cursor-pointer"/></Link></div>
     </>
   )
 }

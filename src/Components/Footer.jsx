@@ -3,9 +3,9 @@ import Links from "./Links";
 
 function Footer() {
   const hea = "text-2xl text-bela font-bold";
-  const bod =
+  const LinkStyles =
     "text-bela inline-flex items-center text-lg py-1 cursor-pointer transition-all ease-lenear duration-300 hover:text-glcrvena";
-  const ik = "mr-1";
+  const IconStyles = "mr-1";
   return (
     <>
       <footer>
@@ -13,43 +13,43 @@ function Footer() {
           <Links linkov="logo" stil="w-32" />
           <div className="flex flex-col justify-center my-3">
             <h3 className={hea}>Quick Links</h3>
-            <Links linkov="pocetna" stil={bod} />
-            <Links linkov="onama" stil={bod} />
-            <Links linkov="vlasnici" stil={bod} />
-            <Links linkov="faq" stil={bod} />
+            <Links linkov="pocetna" stil={LinkStyles} />
+            <Links linkov="onama" stil={LinkStyles} />
+            <Links linkov="vlasnici" stil={LinkStyles} />
+            <Links linkov="faq" stil={LinkStyles} />
           </div>
           <div className="flex flex-col">
             <h3 className={hea}>Social Media</h3>
             <a
               href="https://discord.gg/hcbMShPYJ8"
               target="blank"
-              className={bod}
+              className={LinkStyles}
             >
-              <Icons ikonice="discord" stilovi={ik} />
+              <Icons ikonice="discord" stilovi={IconStyles} />
               Discord
             </a>
             <a
               href="https://www.instagram.com/scorpionslegion"
               target="blank"
-              className={bod}
+              className={LinkStyles}
             >
-              <Icons ikonice="instagram" stilovi={ik} />
+              <Icons ikonice="instagram" stilovi={IconStyles} />
               Instagram
             </a>
             <a
               href="https://steamcommunity.com/groups/scorpionslegion"
               target="blank"
-              className={bod}
+              className={LinkStyles}
             >
-              <Icons ikonice="steam" stilovi={ik} />
+              <Icons ikonice="steam" stilovi={IconStyles} />
               Steam Grupa
             </a>
             <a
               href="https://www.tiktok.com/@scorpionslegion"
               target="blank"
-              className={bod}
+              className={LinkStyles}
             >
-              <Icons ikonice="tiktok" stilovi={ik} />
+              <Icons ikonice="tiktok" stilovi={IconStyles} />
               Tiktok
             </a>
           </div>

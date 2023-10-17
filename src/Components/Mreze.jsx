@@ -3,8 +3,8 @@ import Icons from "./Icons";
 import Aos from "aos";
 
 const Mreze = () => {
-  const micons = "m-4 text-2xl";
-  const mstilovi = "transition-all hover:text-glcrvena text-bela ease-linear duration-100";
+  const IconStyles = "m-4 text-2xl";
+  const LinkStyles = "transition-all hover:text-glcrvena text-bela ease-linear duration-100";
   useEffect(() => {
     Aos.init({ duration: 500, easing: "linear" });
   }, []);
@@ -16,30 +16,30 @@ const Mreze = () => {
       <a
         href="https://discord.gg/hcbMShPYJ8"
         target="blank"
-        className={mstilovi}
+        className={LinkStyles}
       >
-        <Icons ikonice="discord" stilovi={micons} />
+        <Icons ikonice="discord" stilovi={IconStyles} />
       </a>
       <a
         href="https://www.instagram.com/scorpionslegion"
         target="blank"
-        className={mstilovi}
+        className={LinkStyles}
       >
-        <Icons ikonice="instagram" stilovi={micons} />
+        <Icons ikonice="instagram" stilovi={IconStyles} />
       </a>
       <a
         href="https://steamcommunity.com/groups/scorpionslegion"
         target="blank"
-        className={mstilovi}
+        className={LinkStyles}
       >
-        <Icons ikonice="steam" stilovi={micons} />
+        <Icons ikonice="steam" stilovi={IconStyles} />
       </a>
       <a
         href="https://www.tiktok.com/@scorpionslegion"
         target="blank"
-        className={mstilovi}
+        className={LinkStyles}
       >
-        <Icons ikonice="tiktok" stilovi={micons} />
+        <Icons ikonice="tiktok" stilovi={IconStyles} />
       </a>
     </div>
   );
