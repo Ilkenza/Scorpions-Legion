@@ -22,7 +22,7 @@ function Faq () {
     },
     {
       title: "Kakvi rolovi imaju da se uzmu?",
-      desc: 'Rolovi koji mogu da se uzmu su igrice, godine, boje, drzave, pol to sve mozete uzeti u self roles i ako imate cs2 role mozete uzeti cs2 rank, cs2 status i cs2 rating ovo mozete uzeti u cs2 roles.'
+      desc: 'Rolovi koji mogu da se uzmu su igrice, godine, boje, drzave, pol i ako imate cs2 role mozete uzeti cs2 rank, cs2 status i cs2 rating ove sve rankove mozete uzeti u kanali u uloge.'
     },
     {
       title: "Kako da nadjem kanal koji mi treba?",
