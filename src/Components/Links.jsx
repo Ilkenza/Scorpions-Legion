@@ -1,6 +1,6 @@
 import { Link } from "react-scroll";
 import PropTypes from "prop-types"
-import Logo from "../assets/Logo.png";
+import Logo from "../assets/logo.png";
 
 
 const Links = ({ linkov, stil }) => { 
