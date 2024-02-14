@@ -10,7 +10,7 @@ function Footer() {
     <>
       <footer>
         <div className="flex flex-col min-[520px]:flex-row items-center justify-evenly p-10 bg-[#1E1E1E]">
-          <Links linkov="logo" stil="w-32" />
+          <Links linkov="logo" stil="w-24" />
           <div className="flex flex-col justify-center my-3">
             <h3 className={hea}>Quick Links</h3>
             <Links linkov="pocetna" stil={LinkStyles} />

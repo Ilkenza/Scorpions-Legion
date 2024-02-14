@@ -51,7 +51,7 @@ function Nav() {
       <nav className={`flex items-center justify-evenly w-full font-bold text-xl ${navbar ? "bg-[#171717] border-b-[0.01rem] border-glcrvena backdrop-blur z-10 duration-100" : "duration-100"} ${click ? "bg-[#171717] border-b-[0.01rem] border-glcrvena backdrop-blur z-10": "bg-transparent"}`}>
         <Links linkov="pocetna" stil={desktopLinkStyles} />
         <Links linkov="onama" stil={desktopLinkStyles} />
-        <Links linkov="logo" stil="w-[6rem]" />
+        <Links linkov="logo" stil="w-[4rem]" />
         <Links linkov="vlasnici" stil={desktopLinkStyles} />
         <Links linkov="faq" stil={desktopLinkStyles} />
         <button className="block md:hidden transition" onClick={handleClick}>
