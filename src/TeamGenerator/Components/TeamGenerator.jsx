@@ -142,13 +142,6 @@ function TeamGenerator() {
     setShowTeamsContainer(true);
   };
   
-  
-  
-  
-  
-  
-  
-  
 
   const handleTeamNameChange = (event, index) => {
     let { value } = event.target;
@@ -176,17 +169,17 @@ function TeamGenerator() {
   return (
     <div className="bg-cover bg-no-repeat bg-center w-full h-[200vh] md:h-[110vh] flex justify-center items-center flex-col">
       <h3
-        className="mt-24 text-[3rem] sm:text-[5rem] md:text-[6rem] font-bold text-glcrvena"
+        className="mt-24 sm:text-[5rem] md:text-[6rem] font-bold text-glcrvena tn"
         data-aos="fade-up"
       >
         Team Generator
       </h3>
       <div
-        className="h-[0.5rem] w-[20rem] sm:w-[33rem] md:w-[40rem] bg-glcrvena mb-14"
+        className="h-[0.5rem] sm:w-[33rem] md:w-[40rem] bg-glcrvena mb-14 tl"
         data-aos="fade-up"
       ></div>
       <div className="flex flex-col  md:flex-row w-full justify-evenly h-[150vh] md:h-screen items-center ">
-        <div className="rounded-lg mb-5 bg-[#272a2b] p-5 w-full sm:w-96 h-[41rem]">
+        <div className="rounded-lg mb-5 sm:mb-[0rem] bg-[#272a2b] p-5 w-full sm:w-96 h-[41rem]">
           <h2 className="text-[2rem] text-glcrvena text-center font-bold">
             Ucesnici
           </h2>
@@ -264,31 +257,31 @@ function TeamGenerator() {
                 onClick={generateTeams}
                 className="text-plava border-2 rounded-xl px-6 py-2 border-plava duration-300 ease-linear hover:duration-300 hover:ease-linear hover:shadow-disc hover:text-bela"
               >
-                Generate
+                Generisi
               </button>
             </div>
           )}
         </div>
-        <div className="rounded-lg bg-[#272a2b] p-5 w-full md:w-[19rem] lg:w-[35rem] flex justify-center h-[41rem]">
-          <div>
+        <div className="teams rounded-lg bg-[#272a2b] p-5 w-full md:w-[19rem] lg:w-[35rem] flex justify-center h-[41rem]">
+          <div className="">
             <h2 className="text-[2rem] text-glcrvena font-bold text-center">
-              Rezultat
+              Timovi
             </h2>
-            <div className={`scrollteamg gap-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 overflow-y-auto max-h-[55vh] w-full md:w-[16.438rem] lg:w-[32rem] bg-[#212425] px-3 ${showTeamsContainer  ? 'py-3' : ''}`}>
+            <div className={`scrollteamg gap-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 overflow-y-auto max-h-[55vh] md:w-[16.438rem] lg:w-[32rem] bg-[#212425] px-3 ${showTeamsContainer  ? 'py-3' : ''}`}>
               {teams.map((team, index) => (
-                <div key={index} className="w-full md:w-[14.3rem]">
-                  <div className="border-2 border-glcrvena rounded-lg">
+                <div key={index} className=" md:w-[14.3rem]">
+                  <div className="">
                     <input
                       type="text"
                       value={teamNames[index]}
                       onChange={(e) => handleTeamNameChange(e, index)}
                       onBlur={(e) => handleBlurTeamName(e, index)}
                       maxLength="25"
-                      className="text-plava rounded-t-lg border-b-2 font-bold border-glcrvena bg-[#16191A] w-full md:w-[14rem] outline-none px-3 py-1"
+                      className="text-plava rounded-t-lg border-2 font-bold border-glcrvena bg-[#16191A] w-full md:w-[14.3rem] outline-none px-3 py-1"
                     />
 
                     <div className="">
-                      <div className="block p-5 bg-[#212425]">
+                      <div className="block p-5 bg-[#212425] border-x-2 border-b-2 border-glcrvena rounded-b-lg">
                       <div className="flex flex-col items-start border-2 border-[#16191A] p-2 justify-center rounded-lg">
                         {team.map((member, i) => (
                           <p className="block text-plava my-1" key={i}>
