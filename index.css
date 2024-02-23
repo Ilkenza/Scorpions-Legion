@@ -6,6 +6,9 @@
 .ReactCollapse--collapse {
     transition: height 500ms;
 }
+.scrollteamg::-webkit-scrollbar-track{
+    background:#212425;
+}
 
 ::-webkit-scrollbar-thumb{
     background-color:#FF3131;
@@ -15,3 +18,7 @@
 ::-webkit-scrollbar{width:0.625rem;}
 
 ::-webkit-scrollbar-track{background:#141414;}
+
+.writing-mode{
+    writing-mode: vertical-lr;
+}

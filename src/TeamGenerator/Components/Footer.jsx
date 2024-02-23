@@ -1,5 +1,6 @@
-import Icons from "./Icons";
-import Links from "./Links";
+import { Link } from "react-router-dom";
+import Icons from "../../Home/Components/Icons";
+import Links from "../../Home/Components/Links";
 
 function Footer() {
   const hea = "text-2xl text-bela font-bold";
@@ -12,11 +13,8 @@ function Footer() {
         <div className="flex flex-col min-[520px]:flex-row items-center justify-evenly p-10 bg-[#1E1E1E]">
           <Links linkov="logo" stil="w-24" />
           <div className="flex flex-col justify-center my-3">
-            <h3 className={hea}>Quick Links</h3>
-            <Links linkov="pocetna" stil={LinkStyles} />
-            <Links linkov="onama" stil={LinkStyles} />
-            <Links linkov="vlasnici" stil={LinkStyles} />
-            <Links linkov="faq" stil={LinkStyles} />
+            <h3 className={hea}>Quick Link</h3>
+            <Link className={LinkStyles} to="/">Pocetna</Link>
           </div>
           <div className="flex flex-col">
             <h3 className={hea}>Social Media</h3>
@@ -59,7 +57,7 @@ function Footer() {
             Copyright &copy; 2024 Scorpions Legion All Rights Reserved. Made by{" "}
             <a
               href="https://linktr.ee/ilkenza"
-              className="text-bela underline hover:text-glcrvena"
+              className="text-bela underline transition-all ease-lenear duration-300 hover:text-glcrvena"
             >
               korodicilija
             </a>

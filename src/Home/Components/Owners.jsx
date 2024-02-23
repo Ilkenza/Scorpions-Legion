@@ -3,7 +3,7 @@ import Icons from "./Icons";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
-function Vlasnici() {
+function Owners() {
   useEffect(() => {
     Aos.init({ duration: 1000, easing: "ease-in-out" });
   }, []);
@@ -86,4 +86,4 @@ function Vlasnici() {
   );
 }
 
-export default Vlasnici;
+export default Owners;

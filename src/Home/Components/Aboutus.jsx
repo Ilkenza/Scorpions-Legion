@@ -1,7 +1,7 @@
 import Aos from "aos";
 import { useEffect } from "react";
 
-function Onama() {
+function AboutUs() {
 
   const paragraphStyles = "text-base md:text-xl text-center text-dcrvena"
   useEffect(() => {
@@ -28,4 +28,4 @@ function Onama() {
   );
 }
 
-export default Onama;
+export default AboutUs;

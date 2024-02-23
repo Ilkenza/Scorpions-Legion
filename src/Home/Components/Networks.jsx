@@ -1,18 +1,19 @@
 import { useEffect } from "react";
 import Icons from "./Icons";
 import Aos from "aos";
+import { Link } from "react-router-dom";
 
-const Mreze = () => {
-  const IconStyles = "m-4 text-2xl";
+const Networks = () => {
+  const IconStyles = "m-2 text-2xl";
   const LinkStyles = "transition-all hover:text-glcrvena text-bela ease-linear duration-100";
   useEffect(() => {
     Aos.init({ duration: 500, easing: "linear" });
   }, []);
   return (
     <div
-      className=" hidden md:block fixed right-0 top-[20rem] rounded-l-lg bg-[#1E1E1E] z-10"
-      data-aos="fade-left"
+      className=" hidden md:flex flex-col items-end justify-center h-full w-[3.5rem] fixed right-0  z-10"
     >
+      <div className="bg-[#1E1E1E] mb-6 py-1 px-[.5rem] flex items-center flex-col rounded-l-lg" data-aos="fade-left" data-aos-delay="50">
       <a
         href="https://discord.gg/hcbMShPYJ8"
         target="blank"
@@ -41,7 +42,11 @@ const Mreze = () => {
       >
         <Icons ikonice="tiktok" stilovi={IconStyles} />
       </a>
+      </div>
+      <div className="writing-mode bg-[#1E1E1E] rounded-l-lg flex items-center justify-center py-4 px-[.625rem]" data-aos="fade-left"  data-aos-delay="200">
+      <Link className="transition-all hover:text-glcrvena text-bela ease-linear duration-100 font-bold m-1 text-lg cursor-pointer" to="/teamgenerator">Team Generator</Link>
+    </div>
     </div>
   );
 };
-export default Mreze;
+export default Networks;

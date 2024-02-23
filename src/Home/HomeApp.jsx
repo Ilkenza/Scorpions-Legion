@@ -1,12 +1,12 @@
 import Faq from "./Components/FAQ"
 import Footer from "./Components/Footer"
-import Mreze from "./Components/Mreze"
+import Mreze from "./Components/Networks"
 import Nav from "./Components/Nav"
-import Onama from "./Components/Onama"
-import Pocetna from "./Components/Pocetna"
-import Vlasnici from "./Components/Vlasnici"
+import Onama from "./Components/Aboutus"
+import Pocetna from "./Components/Home"
+import Vlasnici from "./Components/Owners"
 
-function App() {
+function HomeApp() {
 
   return (
     <>
@@ -21,4 +21,4 @@ function App() {
   )
 }
 
-export default App
+export default HomeApp

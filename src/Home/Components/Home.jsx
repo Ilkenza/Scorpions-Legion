@@ -4,7 +4,7 @@ import Aos from "aos";
 import { Link } from "react-scroll";
 
 
-function Pocetna () {
+function Home () {
   useEffect(() => {
     Aos.init({duration:500, 
       easing:"linear"});
@@ -29,4 +29,4 @@ function Pocetna () {
   )
 }
 
-export default Pocetna
+export default Home

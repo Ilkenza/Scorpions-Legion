@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      gridTemplateColumns:{
+        '10': 'repeat(2, minmax(0, .34fr));'
+      },
       fontFamily:{
         TitilliumWeb: 'Titillium Web, sans-serif'
       },
@@ -33,12 +36,12 @@ export default {
       disc: "inset 0 -3.25em 0 0 #499BF8"
     },
     backgroundImage:{
-        'mb-pocetna': "url('/src/assets/mobile/mbpocetna.png')",
-        'mb-onama': "url('/src/assets/mobile/mbonama.png')",
-        'desk-pocetna': "url('/src/assets/desktop/deskpocetna.png')",
-        'desk-onama': "url('/src/assets/desktop/deskonama.png')",
-        'ilkenza-logo': "url('/src/assets/ilkenza-logo.png')",
-        'nesko-logo': "url('/src/assets/nesko-logo.png')"
+        'mb-pocetna': "url('/src/Home/assets/mobile/mbhome.png')",
+        'mb-onama': "url('/src/Home/assets/mobile/mbaboutus.png')",
+        'desk-pocetna': "url('/src/Home/assets/desktop/deskhome.png')",
+        'desk-onama': "url('/src/Home/assets/desktop/deskaboutus.png')",
+        'ilkenza-logo': "url('/src/Home/assets/ilkenza-logo.png')",
+        'nesko-logo': "url('/src/Home/assets/nesko-logo.png')"
     }
   },
   plugins: [],
