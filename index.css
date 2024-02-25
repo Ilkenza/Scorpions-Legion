@@ -36,7 +36,7 @@
     .tn{font-size:1.7rem;}
     .tl{width:12rem;height:.2rem}
     .teams{width:100%;}
-    .scrollteamg{width:17rem;;}}
+    .scrollteamg{width:100%;}}
 
 @media screen and (max-width:310px) {
     .scrollteamg{width:100%;}}
