@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import Icons from "../../Home/Components/Icons";
 import Aos from "aos";
+import { motion } from "framer-motion"
+
 
 function TeamGenerator() {
   useEffect(() => {
@@ -12,6 +14,7 @@ function TeamGenerator() {
   const [teamNames, setTeamNames] = useState(
     Array.from({ length: 10 }, (_, i) => `Tim ${i + 1}`)
   );
+
   const [submittedNames, setSubmittedNames] = useState([]);
   const [reachedLimit, setReachedLimit] = useState(false);
   const [showClearButton, setShowClearButton] = useState(false);
@@ -19,6 +22,8 @@ function TeamGenerator() {
   const [teams, setTeams] = useState([]);
   const [showTeamsContainer, setShowTeamsContainer] = useState(false);
 
+
+  
   useEffect(() => {
     if (submittedNames.length >= 2) {
       setShowClearButton(true);
@@ -170,16 +175,15 @@ function TeamGenerator() {
     <div className="bg-cover bg-no-repeat bg-center w-full h-[200vh] md:h-[110vh] flex justify-center items-center flex-col">
       <h3
         className="mt-24 sm:text-[5rem] md:text-[6rem] font-bold text-glcrvena tn"
-        data-aos="fade-up"
-      >
+        data-aos="fade-up">
         Team Generator
       </h3>
       <div
         className="h-[0.5rem] sm:w-[33rem] md:w-[40rem] bg-glcrvena mb-14 tl"
         data-aos="fade-up"
       ></div>
-      <div className="flex flex-col  md:flex-row w-full justify-evenly h-[150vh] md:h-screen items-center ">
-        <div className="rounded-lg mb-5 sm:mb-[0rem] bg-[#272a2b] p-5 w-full sm:w-96 h-[41rem]">
+      <div className="flex flex-col  md:flex-row w-full justify-evenly h-[150vh] md:h-screen items-center">
+        <div className="rounded-lg mb-5 sm:mb-[0rem] bg-[#272a2b] p-5 w-full sm:w-96 h-[41rem]" data-aos="fade-left"  data-aos-delay="200">
           <h2 className="text-[2rem] text-glcrvena text-center font-bold">
             Ucesnici
           </h2>
@@ -217,9 +221,13 @@ function TeamGenerator() {
             } bg-[#212425]`}
           >
             {submittedNames.map((name, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="flex items-center justify-between mt-2"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <input
                   type="text"
@@ -237,7 +245,7 @@ function TeamGenerator() {
                     <Icons ikonice="minus" />
                   </button>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
           <div className="flex w-full items-center justify-between">
@@ -262,14 +270,17 @@ function TeamGenerator() {
             </div>
           )}
         </div>
-        <div className="teams rounded-lg bg-[#272a2b] p-5 w-full md:w-[19rem] lg:w-[35rem] flex justify-center h-[41rem]">
+        <div className="teams rounded-lg bg-[#272a2b] p-5 w-full md:w-[19rem] lg:w-[35rem] flex justify-center h-[41rem]" data-aos="fade-right"  data-aos-delay="200">
           <div className="">
             <h2 className="text-[2rem] text-glcrvena font-bold text-center">
               Timovi
             </h2>
             <div className={`scrollteamg gap-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 overflow-y-auto max-h-[55vh] md:w-[16.438rem] lg:w-[32rem] bg-[#212425] px-3 ${showTeamsContainer  ? 'py-3' : ''}`}>
               {teams.map((team, index) => (
-                <div key={index} className=" md:w-[14.3rem]">
+                <motion.div key={index} className="md:w-[14.3rem]"  initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}>
                   <div className="">
                     <input
                       type="text"
@@ -292,7 +303,7 @@ function TeamGenerator() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, } from "react-router-dom";
 import Icons from "../../Home/Components/Icons";
 import Links from "../../Home/Components/Links";
 import { useEffect, useState } from "react";
@@ -6,18 +6,6 @@ import { useEffect, useState } from "react";
 function Navbar() {
   const [click, setClick] = useState(false);
   const [navbar, setNavbar] = useState(false);
-
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.pathname === '/') {
-      document.body.style.overflow = "hidden";
-      console.log("v")
-    } else {
-      document.body.style.overflow = "visible";
-      console.log("h")
-    }
-  }, [location]);
 
   const handleClick = () => {
     if (!click) {
@@ -29,6 +17,8 @@ function Navbar() {
     }
   };
 
+
+  
   const handleLinkClick = () => {
     document.body.style.overflow = "visible";
   };
