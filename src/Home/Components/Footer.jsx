@@ -56,7 +56,7 @@ function Footer() {
         </div>
         <div className="bg-[#001111] p-2">
           <h6 className="text-glcrvena font-bold text-xs sm:text-sm text-center">
-            Copyright &copy; 2024 Scorpions Legion All Rights Reserved. Made by{" "}
+            Copyright &copy; 2025 Scorpions Legion All Rights Reserved. Made by{" "}
             <a
               href="https://linktr.ee/ilkenza"
               className="text-bela underline transition-all ease-lenear duration-300 hover:text-glcrvena"
