@@ -17,41 +17,48 @@ function Owners() {
   return (
     <div
       id="Vlasnici"
-      className="h-[190vh] md:h-[100vh] flex justify-center items-center flex-col font-bold m-4">
+      className="h-[190vh] md:h-[100vh] flex justify-center items-center flex-col font-bold m-4"
+    >
       <h3
         className="text-[4rem] text-glcrvena sm:text-[5rem] md:text-[6rem]"
         data-aos="fade-up"
-        data-aos-delay="50">
+        data-aos-delay="50"
+      >
         Vlasnici
       </h3>
       <div
         className="h-[0.5rem] w-[15rem] sm:w-[18rem] md:w-[22rem] bg-glcrvena mb-14"
-        data-aos="fade-up"></div>
+        data-aos="fade-up"
+      ></div>
       <div
         className="flex flex-col md:flex-row w-full justify-evenly"
         data-aos="fade-up"
-        data-aos-delay="70">
+        data-aos-delay="70"
+      >
         <div className={cardStyles}>
           <div className={`bg-ilkenza-logo ${roundImageStyles}`}></div>
           <h4 className={headingStyles}>Ilkenza</h4>
           <a
             href="https://www.instagram.com/ilija03k_/"
             className={LinkStyles}
-            target="blank">
+            target="blank"
+          >
             <Icons ikonice="instagram" stilovi={IconStyles} />
             Instagram
           </a>
           <a
             href="https://steamcommunity.com/id/ilkenza"
             className={LinkStyles}
-            target="blank">
+            target="blank"
+          >
             <Icons ikonice="steam" stilovi={IconStyles} />
             Steam
           </a>
           <a
             href="https://twitter.com/Ilkenza1"
             className={LinkStyles}
-            target="blank">
+            target="blank"
+          >
             <Icons ikonice="twitter" stilovi={IconStyles} />
             Twitter
           </a>
@@ -60,23 +67,26 @@ function Owners() {
           <div className={`bg-nesko-logo ${roundImageStyles}`}></div>
           <h4 className={headingStyles}>Nesko</h4>
           <a
-            href="https://www.instagram.com/nebojsa.ninkovvv/"
+            href="https://www.instagram.com/nebojsaninkovv/"
             className={LinkStyles}
-            target="blank">
+            target="blank"
+          >
             <Icons ikonice="instagram" stilovi={IconStyles} />
             Instagram
           </a>
           <a
             href="https://steamcommunity.com/id/neskojebre"
             className={LinkStyles}
-            target="blank">
+            target="blank"
+          >
             <Icons ikonice="steam" stilovi={IconStyles} />
             Steam
           </a>
           <a
             href="https://twitter.com/pb_mootivation"
             className={LinkStyles}
-            target="blank">
+            target="blank"
+          >
             <Icons ikonice="twitter" stilovi={IconStyles} />
             Twitter
           </a>
