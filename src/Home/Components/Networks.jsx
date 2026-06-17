@@ -48,7 +48,7 @@ const Networks = () => {
       </a>
       </div>
       <div className="writing-mode bg-[#1E1E1E] rounded-l-lg flex items-center justify-center py-4 px-[.625rem]" data-aos="fade-left"  data-aos-delay="200">
-      <Link className="transition-all hover:text-glcrvena text-bela ease-linear duration-100 font-bold m-1 text-lg cursor-pointer" to="/teamgenerator">Team Generator</Link>
+      <Link className="transition-all hover:text-glcrvena text-bela ease-linear duration-100 font-bold m-1 text-lg cursor-pointer" to="/teamgenerator">Tim Generator</Link>
     </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import { FaDiscord, FaInstagram, FaSteam, FaTiktok, FaXTwitter, FaAngleDown, FaAngleUp, FaPlus, FaMinus, FaGift, FaTrophy, FaCoins, FaPalette, FaHandshake, FaHashtag } from "react-icons/fa6";
+import { FaDiscord, FaInstagram, FaSteam, FaTiktok, FaXTwitter, FaAngleDown, FaAngleUp, FaPlus, FaMinus, FaGift, FaTrophy, FaCoins, FaPalette, FaHandshake, FaHashtag, FaArrowsRotate, FaCopy, FaCheck } from "react-icons/fa6";
 import {AiOutlineMenu, AiOutlineClose} from "react-icons/ai"
 
 
@@ -21,7 +21,10 @@ const Icons = ({ ikonice, stilovi }) => {
     coins: <FaCoins className={stilovi} />,
     palette: <FaPalette className={stilovi} />,
     handshake: <FaHandshake className={stilovi} />,
-    hashtag: <FaHashtag className={stilovi} />
+    hashtag: <FaHashtag className={stilovi} />,
+    refresh: <FaArrowsRotate className={stilovi} />,
+    copy: <FaCopy className={stilovi} />,
+    check: <FaCheck className={stilovi} />
   };
 
   return (

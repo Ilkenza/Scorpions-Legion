@@ -63,7 +63,7 @@ function Footer() {
             Discord
           </a>
           <Link to="/teamgenerator" className={linkStyle}>
-            Team Generator
+            Tim Generator
           </Link>
           <a
             href="https://steamcommunity.com/groups/scorpionslegion"

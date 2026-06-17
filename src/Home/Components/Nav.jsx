@@ -102,7 +102,7 @@ function Nav() {
           <Links linkov="pravila" stil={mobileLinkStyles} />
           <Links linkov="faq" stil={mobileLinkStyles} />
           <Link className={mobileLinkStyles} to="/teamgenerator" onClick={handleLinkClick}>
-            Team Generator
+            Tim Generator
           </Link>
         </div>
         <a
