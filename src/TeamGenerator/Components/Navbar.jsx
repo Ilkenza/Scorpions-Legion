@@ -1,4 +1,4 @@
-import { Link, } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Icons from "../../Home/Components/Icons";
 import Links from "../../Home/Components/Links";
 import { useEffect, useState } from "react";
@@ -17,21 +17,13 @@ function Navbar() {
     }
   };
 
-
-  
   const handleLinkClick = () => {
     document.body.style.overflow = "visible";
+    setClick(false);
   };
 
-
   const changebg = () => {
-    if (window.scrollY >= 80) {
-      setNavbar(true);
-      setClick(false);
-      document.body.style.overflow = "visible";
-    } else {
-      setNavbar(false);
-    }
+    setNavbar(window.scrollY >= 80);
   };
 
   useEffect(() => {
@@ -41,101 +33,95 @@ function Navbar() {
     };
   }, []);
 
-  const desktopLinkStyles =
-    "cursor-pointer hover:text-glcrvena text-bela transition-all ease-linear duration-100 hidden md:flex";
-  const mobileLinkStyles =
-    "cursor-pointer font-bold hover:text-glcrvena my-5 transition-all ease-linear duration-100 text-bela";
-  const socialMediaIconsStyles = "m-4 text-3xl";
-  const socialMediaLinksStyles =
-    "text-bela hover:text-glcrvena transition-all ease-linear duration-100";
+  const linkStyle =
+    "cursor-pointer text-bela hover:text-glcrvena transition-colors duration-200 font-display uppercase tracking-wider text-lg";
+  const socialIcon = "text-3xl mx-3";
+  const socialLink = "text-bela hover:text-glcrvena transition-colors duration-200";
+  const discordCta =
+    "inline-flex items-center gap-2 px-4 py-2 rounded-lg font-display font-bold uppercase tracking-wider text-base bg-plava/10 text-plava border border-plava transition-all duration-300 hover:bg-plava hover:text-bgdark hover:shadow-glow-blue";
 
-  const contentClasses = `md:hidden items-center flex flex-col h-screen justify-evenly transform ${
-    click
-      ? "animate__animated animate__slideInRight bg-[#171717]"
-      : "animate__animated animate__slideOutRight bg-[#171717] duration-1000 ease-in-out"
-  } transition-transform duration-300 ease-in-out`;
+  const contentClasses = `md:hidden items-center flex flex-col h-screen w-full justify-center gap-2 overflow-hidden bg-bgdark/95 backdrop-blur-xl transform transition-transform duration-300 ease-in-out ${
+    click ? "translate-x-0" : "translate-x-full"
+  }`;
+
   return (
-    <header
-      className={`fixed top-0 w-full z-10 ${click ? "h-screen" : "h-24"}`}>
+    <header className={`fixed top-0 w-full z-50 ${click ? "h-screen" : "h-24"}`}>
       <nav
-        className={`flex items-center justify-evenly w-full font-bold text-xl ${
+        className={`flex items-center justify-between px-5 sm:px-8 lg:px-14 h-24 w-full transition-all duration-300 ${
           navbar
-            ? "bg-[#171717] border-b-[0.01rem] border-glcrvena backdrop-blur z-10 duration-100"
-            : "duration-100"
-        } ${
-          click
-            ? "bg-[#171717] border-b-[0.01rem] border-glcrvena backdrop-blur z-10"
+            ? "bg-bgdark/70 backdrop-blur-md border-b border-white/10 shadow-glow-soft"
+            : click
+            ? "bg-bgdark/80 backdrop-blur-md border-b border-white/10"
             : "bg-transparent"
-        }`}>
-        <Link className={desktopLinkStyles} to="/" >
-          Pocetna
-        </Link>
-        <Links linkov="logo" stil="w-[4rem]" />
-        <div className="hidden md:flex my-5">
+        }`}
+      >
+        <Links linkov="logo" stil="w-14" />
+
+        <div className="flex items-center gap-4">
+          <Link to="/" className={`hidden md:inline-flex ${linkStyle}`}>
+            Pocetna
+          </Link>
           <a
             href="https://discord.gg/hcbMShPYJ8"
-            target="blank"
-            className={socialMediaLinksStyles}>
-            <Icons ikonice="discord" stilovi={socialMediaIconsStyles} />
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`hidden md:inline-flex ${discordCta}`}
+          >
+            <Icons ikonice="discord" stilovi="text-xl" />
+            Discord
           </a>
+          <button
+            className="block md:hidden transition"
+            onClick={handleClick}
+            aria-label="Meni"
+          >
+            {click ? (
+              <Icons ikonice="close" stilovi="text-4xl text-glcrvena" />
+            ) : (
+              <Icons ikonice="menu" stilovi="text-4xl text-glcrvena" />
+            )}
+          </button>
+        </div>
+      </nav>
+
+      <div className={contentClasses}>
+        <Link className={`my-3 text-3xl ${linkStyle}`} to="/" onClick={handleLinkClick}>
+          Pocetna
+        </Link>
+        <a
+          href="https://discord.gg/hcbMShPYJ8"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`mt-6 text-xl px-6 py-3 ${discordCta}`}
+        >
+          <Icons ikonice="discord" stilovi="text-2xl" />
+          Udji na Discord
+        </a>
+        <div className="flex mt-6">
           <a
             href="https://www.instagram.com/scorpionslegion"
-            target="blank"
-            className={socialMediaLinksStyles}>
-            <Icons ikonice="instagram" stilovi={socialMediaIconsStyles} />
+            target="_blank"
+            rel="noopener noreferrer"
+            className={socialLink}
+          >
+            <Icons ikonice="instagram" stilovi={socialIcon} />
           </a>
           <a
             href="https://steamcommunity.com/groups/scorpionslegion"
-            target="blank"
-            className={socialMediaLinksStyles}>
-            <Icons ikonice="steam" stilovi={socialMediaIconsStyles} />
+            target="_blank"
+            rel="noopener noreferrer"
+            className={socialLink}
+          >
+            <Icons ikonice="steam" stilovi={socialIcon} />
           </a>
           <a
             href="https://www.tiktok.com/@scorpionslegion"
-            target="blank"
-            className={socialMediaLinksStyles}>
-            <Icons ikonice="tiktok" stilovi={socialMediaIconsStyles} />
+            target="_blank"
+            rel="noopener noreferrer"
+            className={socialLink}
+          >
+            <Icons ikonice="tiktok" stilovi={socialIcon} />
           </a>
-        </div>
-        <button className="block md:hidden transition" onClick={handleClick}>
-          {click ? (
-            <Icons ikonice="close" stilovi="text-4xl text-glcrvena" />
-          ) : (
-            <Icons ikonice="menu" stilovi="text-4xl text-glcrvena" />
-          )}
-        </button>
-      </nav>
-      <div className={`animate-content-show ${contentClasses}`}>
-        <div className="text-3xl items-center inline-flex w-full flex-col">
-          <Link className={mobileLinkStyles} to="/" onClick={handleLinkClick}>
-            Pocetna
-          </Link>
-          <div className="md:hidden flex my-5">
-            <a
-              href="https://discord.gg/hcbMShPYJ8"
-              target="blank"
-              className={socialMediaLinksStyles}>
-              <Icons ikonice="discord" stilovi={socialMediaIconsStyles} />
-            </a>
-            <a
-              href="https://www.instagram.com/scorpionslegion"
-              target="blank"
-              className={socialMediaLinksStyles}>
-              <Icons ikonice="instagram" stilovi={socialMediaIconsStyles} />
-            </a>
-            <a
-              href="https://steamcommunity.com/groups/scorpionslegion"
-              target="blank"
-              className={socialMediaLinksStyles}>
-              <Icons ikonice="steam" stilovi={socialMediaIconsStyles} />
-            </a>
-            <a
-              href="https://www.tiktok.com/@scorpionslegion"
-              target="blank"
-              className={socialMediaLinksStyles}>
-              <Icons ikonice="tiktok" stilovi={socialMediaIconsStyles} />
-            </a>
-          </div>
         </div>
       </div>
     </header>

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import { useEffect } from "react";
 import Home from "./src/Home/HomeApp";
 import TeamGeneratorApp from "./src/TeamGenerator/TeamGeneratorApp";
+import NotFound from "./src/Common/NotFound";
 
 function ScrollToTop({ children }) {
   const { pathname } = useLocation();
@@ -20,8 +21,9 @@ function App() {
       <div className="App">
         <ScrollToTop>
           <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/teamgenerator" element={<TeamGeneratorApp />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/teamgenerator" element={<TeamGeneratorApp />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </ScrollToTop>
       </div>

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://scorpionslegion.netlify.app/sitemap.xml

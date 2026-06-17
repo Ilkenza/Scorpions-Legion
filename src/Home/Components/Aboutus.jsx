@@ -1,30 +1,59 @@
 import Aos from "aos";
 import { useEffect } from "react";
+import Icons from "./Icons";
+import SectionHeader from "../../Common/SectionHeader";
 
 function AboutUs() {
-
-  const paragraphStyles = "text-base md:text-xl text-center text-dcrvena"
   useEffect(() => {
-    Aos.init({duration:1000, 
-      easing:"linear"});
+    Aos.init({ duration: 800, easing: "ease-in-out" });
   }, []);
+
+  const features = [
+    { icon: "gift", title: "Giveaway-i", desc: "Redovne nagradne igre za članove." },
+    { icon: "trophy", title: "Fastcup", desc: "Povremeni turniri i takmičenja." },
+    { icon: "coins", title: "Ekonomija", desc: "Razvijena ekonomija servera." },
+    {
+      icon: "palette",
+      title: "Self-rolovi",
+      desc: "Biraj igre, godine, boje, državu, pol i CS2 rankove.",
+    },
+    { icon: "handshake", title: "Partnerstva", desc: "Saradnja isključivo sa CS2 serverima." },
+    { icon: "hashtag", title: "Tvoje sobe", desc: "Pravljenje i editovanje sopstvenih soba." },
+  ];
+
   return (
-    <div
+    <section
       id="Onama"
-      className="bg-cover bg-no-repeat bg-center w-full h-[100vh] flex justify-center items-center flex-col text-glcrvena font-bold md:bg-desk-onama bg-mb-onama">
-      <h3 className="text-[4rem] sm:text-[5rem] md:text-[6rem]" data-aos="fade-up" data-aos-delay="50">O nama</h3>
-      <div className="h-[0.5rem] w-[15rem] sm:w-[18rem] md:w-[22rem] bg-glcrvena mb-14" data-aos="fade-up" data-aos-delay="50"></div>
-      <p className={paragraphStyles} data-aos="fade-up" data-aos-delay="150">
-        Scorpions Legion je discord zajednica gde se okupljaju CS2 igraci.<br/>
-        Server je osnovan 15.06.2023.</p>
-        <br/>
-        <p className={paragraphStyles} data-aos="fade-up" data-aos-delay="250">Na serveru se prave givavejevi,odrzava se povremeno fastcup, ima<br/>
-        dobra ekonomija, self-rolovi,partnership koji radimo samo sa cs2<br/>
-        serverima,pravljenje sobe i editovanje iste sobe.</p>
-        <br/>
-        <p className={paragraphStyles} data-aos="fade-up" data-aos-delay="350">Server je napravljen u cilju da bude sto vise cs2 igraca koji mogu<br/>
-         medjusobno da igraju cs2 i da pisu medjusobno.</p>
-    </div>
+      className="relative bg-cover bg-no-repeat bg-center w-full min-h-screen flex flex-col justify-center items-center py-24 px-4 md:bg-desk-onama bg-mb-onama"
+    >
+      <div className="absolute inset-0 bg-bgdark/80" aria-hidden="true"></div>
+
+      <div className="relative z-10 w-full max-w-5xl flex flex-col items-center">
+        <SectionHeader eyebrow="Ko smo mi" title="O nama" />
+        <p
+          className="text-dcrvena text-base sm:text-xl text-center max-w-2xl mb-12"
+          data-aos="fade-up"
+        >
+          Scorpions Legion je CS2 Discord zajednica osnovana 15.06.2023. Mesto gde se igrači
+          okupljaju da igraju, pričaju i druže se.
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
+          {features.map((f, i) => (
+            <div
+              key={i}
+              className="glass glass-hover rounded-2xl p-6 flex flex-col items-center text-center"
+              data-aos="fade-up"
+              data-aos-delay={i * 50}
+            >
+              <Icons ikonice={f.icon} stilovi="text-4xl text-plava mb-4" />
+              <h4 className="text-bela font-bold text-xl mb-2">{f.title}</h4>
+              <p className="text-bela/60 text-sm sm:text-base">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 

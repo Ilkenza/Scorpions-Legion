@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import Icons from "../../Home/Components/Icons";
 import Aos from "aos";
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
+import SectionHeader from "../../Common/SectionHeader";
 
 
 function TeamGenerator() {
@@ -21,6 +22,7 @@ function TeamGenerator() {
   const [showGenerateButton, setShowGenerateButton] = useState(false);
   const [teams, setTeams] = useState([]);
   const [showTeamsContainer, setShowTeamsContainer] = useState(false);
+  const [error, setError] = useState("");
 
 
   
@@ -33,12 +35,8 @@ function TeamGenerator() {
       setShowGenerateButton(false);
     }
 
-    if (
-      submittedNames.length >= 10 &&
-      submittedNames.length - 1 < 1 &&
-      scrollRef.current
-    ) {
-      scrollRef.current.scrollIntoView({ behavior: "smooth" });
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
     if (submittedNames.length === 50) {
       setReachedLimit(true);
@@ -55,6 +53,7 @@ function TeamGenerator() {
 
   const handleChangeInput = (event) => {
     setInputValue(event.target.value);
+    if (error) setError("");
   };
 
   const handleInputChange = (event, index) => {
@@ -76,10 +75,14 @@ function TeamGenerator() {
   };
 
   const handleSubmit = () => {
-    if (submittedNames.length < 50 && inputValue.trim() !== "") {
-      setSubmittedNames([...submittedNames, inputValue.trim()]);
-      setInputValue("");
+    if (reachedLimit) return;
+    if (inputValue.trim() === "") {
+      setError("Unesi ime učesnika pre dodavanja.");
+      return;
     }
+    setSubmittedNames([...submittedNames, inputValue.trim()]);
+    setInputValue("");
+    setError("");
   };
 
   const handleRemoveName = (index) => {
@@ -172,110 +175,116 @@ function TeamGenerator() {
   
 
   return (
-    <div className="bg-cover bg-no-repeat bg-center w-full h-[200vh] md:h-[110vh] flex justify-center items-center flex-col">
-      <h3
-        className="mt-24 sm:text-[5rem] md:text-[6rem] font-bold text-glcrvena tn"
-        data-aos="fade-up">
-        Team Generator
-      </h3>
-      <div
-        className="h-[0.5rem] sm:w-[33rem] md:w-[40rem] bg-glcrvena mb-14 tl"
-        data-aos="fade-up"
-      ></div>
-      <div className="flex flex-col  md:flex-row w-full justify-evenly h-[150vh] md:h-screen items-center">
-        <div className="rounded-lg mb-5 sm:mb-[0rem] bg-[#272a2b] p-5 w-full sm:w-96 h-[41rem]" data-aos="fade-left"  data-aos-delay="200">
-          <h2 className="text-[2rem] text-glcrvena text-center font-bold">
-            Ucesnici
-          </h2>
-          <div className="bg-glcrvena flex items-center rounded-lg justify-between">
+    <div className="w-full min-h-screen flex justify-center items-center flex-col py-24 px-4">
+      <SectionHeader eyebrow="Alat" title="Team Generator" />
+      <div className="flex flex-col md:flex-row w-full justify-evenly items-center gap-8">
+        <div className="rounded-lg mb-5 sm:mb-[0rem] glass p-5 w-full sm:w-96 h-[41rem]" data-aos="fade-left"  data-aos-delay="200">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-2xl text-bela font-bold uppercase tracking-wide">
+              Učesnici
+            </h2>
+            <span className="glass rounded-full px-3 py-1 text-sm text-plava">
+              {submittedNames.length}/50
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
             <input
               maxLength="20"
-              className={`bg-[#16191A] border-2 border-glcrvena w-4/5 sm:w-72 px-3 rounded-s-lg py-3 focus:outline-none text-plava placeholder:text-plava ${
-                reachedLimit ? "opacity-[.7]" : ""
-              }`}
+              className={`flex-1 min-w-0 bg-bgdark/60 border rounded-lg px-4 py-3 text-bela placeholder:text-bela/40 outline-none transition-colors ${
+                error ? "border-glcrvena" : "border-white/10 focus:border-plava"
+              } ${reachedLimit ? "opacity-60" : ""}`}
               type="text"
               value={inputValue}
               onChange={handleChangeInput}
               onKeyDown={handleKeyDown}
-              placeholder={
-                reachedLimit
-                  ? "Maksimalan broj učesnika (50)."
-                  : inputValue.trim()
-                  ? ""
-                  : "Ime Ucesnika"
-              }
+              placeholder={reachedLimit ? "Maksimum (50) dostignut" : "Ime učesnika"}
               disabled={reachedLimit}
             />
-            <button onClick={handleSubmit} disabled={reachedLimit}>
-              <Icons
-                ikonice="plus"
-                className="!outline-none focus:outline-none"
-              />
+            <button
+              onClick={handleSubmit}
+              disabled={reachedLimit}
+              aria-label="Dodaj učesnika"
+              className="shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-plava text-bgdark transition-all duration-300 hover:shadow-glow-blue active:scale-95 disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bela"
+            >
+              <Icons ikonice="plus" stilovi="!text-bgdark !text-2xl !m-0 !my-0" />
             </button>
           </div>
+          {error && <p className="text-glcrvena text-sm mt-2">{error}</p>}
 
           <div
             ref={scrollRef}
-            className={`scrollteamg max-h-[25rem] overflow-y-auto px-2 ${
-              submittedNames.length ? "py-2 mt-4" : ""
-            } bg-[#212425]`}
+            className="scrollteamg max-h-[25rem] overflow-y-auto mt-4 pr-1"
           >
-            {submittedNames.map((name, index) => (
-              <motion.div
-                key={index}
-                className="flex items-center justify-between mt-2"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <input
-                  type="text"
-                  maxLength="20"
-                  value={name}
-                  onChange={(e) => handleInputChange(e, index)}
-                  onBlur={() => handleBlurInput(index)}
-                  className="w-full px-3 py-1 bg-[#16191A] placeholder-plava text-plava rounded-s-lg focus:outline-none"
-                />
-                <div className="bg-[#16191A] py-1.5 rounded-e-lg">
+            {submittedNames.length === 0 && (
+              <p className="text-bela/40 text-sm text-center py-10">
+                Još nema učesnika. Dodaj bar 2 da generišeš timove.
+              </p>
+            )}
+            <AnimatePresence>
+              {submittedNames.map((name, index) => (
+                <motion.div
+                  key={index}
+                  className="flex items-center gap-2 bg-bgdark/60 rounded-lg mt-2 pr-2"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                >
+                  <input
+                    type="text"
+                    maxLength="20"
+                    value={name}
+                    onChange={(e) => handleInputChange(e, index)}
+                    onBlur={() => handleBlurInput(index)}
+                    className="flex-1 min-w-0 px-3 py-2 bg-transparent text-bela outline-none"
+                  />
                   <button
-                    className="mr-2 flex"
+                    className="shrink-0 w-7 h-7 flex items-center justify-center rounded-md text-glcrvena hover:bg-glcrvena/20 transition-colors"
                     onClick={() => handleRemoveName(index)}
+                    aria-label="Ukloni"
                   >
-                    <Icons ikonice="minus" />
+                    <Icons ikonice="minus" stilovi="!text-glcrvena !text-base" />
                   </button>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </div>
-          <div className="flex w-full items-center justify-between">
-            <p className="text-plava">{submittedNames.length}</p>
-            {showClearButton && (
+          {showClearButton && (
+            <div className="flex w-full justify-end">
               <button
                 onClick={handleClearAll}
-                className="my-2 border-2 text-plava rounded-xl px-2 border-plava duration-300 ease-linear hover:duration-300 hover:ease-linear hover:shadow-disc hover:text-bela"
+                className="mt-3 px-4 py-1.5 rounded-lg font-display uppercase tracking-wider text-sm text-glcrvena border border-glcrvena/60 transition-all duration-300 hover:bg-glcrvena hover:text-bgdark active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glcrvena"
               >
                 Obriši sve
               </button>
-            )}
-          </div>
-          {showGenerateButton && (
-            <div className="flex w-full items-center justify-center">
-              <button
-                onClick={generateTeams}
-                className="text-plava border-2 rounded-xl px-6 py-2 border-plava duration-300 ease-linear hover:duration-300 hover:ease-linear hover:shadow-disc hover:text-bela"
-              >
-                Generisi
-              </button>
             </div>
           )}
+          {reachedLimit && (
+            <p className="text-glcrvena text-sm text-center mt-1">
+              Dostignut je maksimum od 50 učesnika.
+            </p>
+          )}
+          {showGenerateButton && (
+            <button
+              onClick={generateTeams}
+              className="w-full mt-4 px-6 py-3 rounded-lg font-display font-bold uppercase tracking-wider text-lg bg-plava text-bgdark transition-all duration-300 hover:shadow-glow-blue active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bela"
+            >
+              Generiši timove
+            </button>
+          )}
         </div>
-        <div className="teams rounded-lg bg-[#272a2b] p-5 w-full md:w-[19rem] lg:w-[35rem] flex justify-center h-[41rem]" data-aos="fade-right"  data-aos-delay="200">
+        <div className="teams rounded-lg glass p-5 w-full md:w-[19rem] lg:w-[35rem] flex justify-center h-[41rem]" data-aos="fade-right"  data-aos-delay="200">
           <div className="">
-            <h2 className="text-[2rem] text-glcrvena font-bold text-center">
+            <h2 className="text-2xl text-bela font-bold uppercase tracking-wide text-center mb-4">
               Timovi
             </h2>
-            <div className={`scrollteamg gap-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 overflow-y-auto max-h-[55vh] md:w-[16.438rem] lg:w-[32rem] bg-[#212425] px-3 ${showTeamsContainer  ? 'py-3' : ''}`}>
+            <div className={`scrollteamg gap-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 overflow-y-auto max-h-[55vh] md:w-[16.438rem] lg:w-[32rem] bg-bgdark/30 rounded-lg px-3 ${showTeamsContainer ? "py-3" : ""}`}>
+              {teams.length === 0 && (
+                <p className="col-span-full text-bela/40 text-sm text-center py-12">
+                  Timovi će se prikazati ovde nakon generisanja.
+                </p>
+              )}
+              <AnimatePresence>
               {teams.map((team, index) => (
                 <motion.div key={index} className="md:w-[14.3rem]"  initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -288,23 +297,25 @@ function TeamGenerator() {
                       onChange={(e) => handleTeamNameChange(e, index)}
                       onBlur={(e) => handleBlurTeamName(e, index)}
                       maxLength="25"
-                      className="text-plava rounded-t-lg border-2 font-bold border-glcrvena bg-[#16191A] w-full md:w-[14.3rem] outline-none px-3 py-1"
+                      className="text-plava rounded-t-lg border border-glcrvena/60 font-bold bg-bgdark/60 w-full md:w-[14.3rem] outline-none px-3 py-2"
                     />
 
-                    <div className="">
-                      <div className="block p-5 bg-[#212425] border-x-2 border-b-2 border-glcrvena rounded-b-lg">
-                      <div className="flex flex-col items-start border-2 border-[#16191A] p-2 justify-center rounded-lg">
+                    <div className="block p-3 bg-bgdark/40 border-x border-b border-glcrvena/40 rounded-b-lg">
+                      <div className="flex flex-wrap gap-2">
                         {team.map((member, i) => (
-                          <p className="block text-plava my-1" key={i}>
+                          <span
+                            className="px-2 py-1 rounded-md bg-plava/10 text-plava text-sm"
+                            key={i}
+                          >
                             {member}
-                          </p>
+                          </span>
                         ))}
-                      </div>
                       </div>
                     </div>
                   </div>
                 </motion.div>
               ))}
+              </AnimatePresence>
             </div>
           </div>
         </div>

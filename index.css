@@ -3,6 +3,42 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    background-color: #0b0b0f;
+    background-image:
+        radial-gradient(60rem 40rem at 50% -10%, rgba(255, 49, 49, 0.10), transparent 70%),
+        radial-gradient(50rem 40rem at 100% 20%, rgba(73, 155, 248, 0.06), transparent 70%),
+        linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+    background-size: auto, auto, 56px 56px, 56px 56px;
+    background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Rajdhani", "Titillium Web", sans-serif;
+    letter-spacing: 0.01em;
+}
+
+/* Staklasti panel — koristi se za kartice, navbar, sekcije */
+.glass {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.glass-hover {
+    transition: border-color 300ms ease, box-shadow 300ms ease, transform 300ms ease;
+}
+.glass-hover:hover {
+    border-color: rgba(255, 49, 49, 0.5);
+    box-shadow: 0 0 35px -5px rgba(255, 49, 49, 0.35);
+}
+
+/* Crveni glow ispod krupnih naslova */
+.glow-text {
+    text-shadow: 0 0 30px rgba(255, 49, 49, 0.45);
+}
+
 .ReactCollapse--collapse {
     transition: height 500ms;
 }
@@ -43,7 +79,7 @@
 
 ::-webkit-scrollbar-thumb{
     background-color:#FF3131;
-    border: 1px solid#141414;
+    border: 1px solid #141414;
     border-radius:0.625rem;
 }
 ::-webkit-scrollbar{width:0.625rem;}
